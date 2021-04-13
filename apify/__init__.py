@@ -18,7 +18,7 @@ def pushData(payload):
             f.write(json.dumps(payload))
         return 0
         
-def setValue(key, value, options = {}, storeID):
+def setValue(key, value, storeID, options = {}):
     if os.environ.get("APIFY_IS_AT_HOME") is '1':
         
         authToken = os.environ.get('APIFY_TOKEN')

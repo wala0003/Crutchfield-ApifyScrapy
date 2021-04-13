@@ -18,9 +18,9 @@ def pushData(payload):
             f.write(json.dumps(payload))
         return 0
         
-def setValue(key, value, options = {}):
+def setValue(key, value, options = {}, storeID):
     if os.environ.get("APIFY_IS_AT_HOME") is '1':
-        storeId = os.environ.get('APIFY_DEFAULT_KEY_VALUE_STORE_ID')
+        
         authToken = os.environ.get('APIFY_TOKEN')
         url = 'https://api.apify.com/v2/key-value-stores/%s/records/%s?token=%s' % (storeId, key, authToken)
         data = value

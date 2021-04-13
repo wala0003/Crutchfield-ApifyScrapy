@@ -18,11 +18,11 @@ def pushData(payload):
             f.write(json.dumps(payload))
         return 0
         
-def setValue(key, value, storeID, options = {}):
+def setValue(key, value, store, options = {}):
     if os.environ.get("APIFY_IS_AT_HOME") is '1':
         
         authToken = os.environ.get('APIFY_TOKEN')
-        url = 'https://api.apify.com/v2/key-value-stores/%s/records/%s?token=%s' % (storeId, key, authToken)
+        url = 'https://api.apify.com/v2/key-value-stores/%s/records/%s?token=%s' % (store, key, authToken)
         data = value
         if "contentType" in options:
             headers = {'Content-Type': options["contentType"]}
